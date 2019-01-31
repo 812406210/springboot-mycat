@@ -1,0 +1,44 @@
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: com.mycat.demo.entity
+  mapperLocations: classpath:mapper/*.xml
+
+
+---
+
+#开发配置
+spring:
+  profiles: dev
+
+  datasource:
+    #url: jdbc:mysql://47.110.86.4:3311/sp01
+    #mycat的ip和port以及用户和密码
+    url: jdbc:mysql://172.16.3.162:8066/TESTDB
+    username: mycat
+    password: yang156122
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    #type: com.alibaba.druid.pool.DruidDataSource
+
+
+#redis配置
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password:
+  pool:
+    max-active: 100
+    max-idle: 10
+    max-wait: 100000
+  timeout: 0
+
+http:
+  encoding:
+    charset: UTF-8
+    force: true
+    enabled: true
